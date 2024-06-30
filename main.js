@@ -23,6 +23,7 @@ userInput.addEventListener("focus",function(){
     userInput.value= "";
 })
 
+
 function randomNumber(){
     computerNumber= Math.floor(Math.random() * 100 + 1);
     console.log("Correct", computerNumber);
@@ -79,6 +80,8 @@ function game() {
         userGoButton.disabled = true
     }
 
+    
+
 }
 
 
@@ -86,6 +89,7 @@ function reset(){
     userInput.value= "";
     randomNumber();
     resultArea.textContent = "Enter a number. (1-100)";
+    userGoButton.disabled = false; //  // Enable the Go button
 }
 
 randomNumber();
