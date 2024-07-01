@@ -12,10 +12,11 @@ let userGoButton = document.getElementsByClassName("user-go")[0];
 let userInput = document.getElementsByClassName("user-input")[0];
 let resultArea = document.getElementsByClassName("result-area")[0];
 let resetButton = document.getElementsByClassName("reset-button")[0];
-let chances = 10;
+let chances = 3;
 let gameOver =false;
 let chancePoint = document.getElementsByClassName("chance-point")[0];
 let history = []
+
 
 userGoButton.addEventListener ("click", game);
 resetButton.addEventListener ("click",reset);
@@ -32,7 +33,7 @@ function randomNumber(){
 
 
 function game() {
-    let userValue = userInput.value;
+    let userValue = userInput.value; 
 
     if(userValue>100 || userValue < 1){
         resultArea.textContent = "Enter a number between 1 and 100!!";
@@ -49,35 +50,37 @@ function game() {
 
     
 
-    chances --
-    chancePoint.textContent = `remain chance=${chances} `
+    chances --;
+    chancePoint.textContent = `remain chance=${chances} `;
 
 
 
 
     if(userValue < computerNumber){
        
-       resultArea.textContent = "Up"
+       resultArea.textContent = "Up";
 
     } else if (userValue > computerNumber ){
         
-         resultArea.textContent = "Down"
+         resultArea.textContent = "Down";
 
     } else {
         
-        resultArea.textContent = "Correct"
-        userGoButton.disabled =true
+        resultArea.textContent = "Correct";
+        userGoButton.disabled =true;
     }
 
-    history.push(userValue)
+    history.push(userValue);
+    displayHistory(); // Display updated history
 
     if (chances < 1){
         gameOver=true
+        resultArea.textContent = "Game over";
 
     }
 
     if (gameOver ==true){
-        userGoButton.disabled = true
+        userGoButton.disabled = true;
     }
 
     
@@ -88,9 +91,29 @@ function game() {
 function reset(){
     userInput.value= "";
     randomNumber();
+    chances = 3;
+    history = [];
+    gameOver = false;
+    chancePoint.textContent = "remain chance = 3";
     resultArea.textContent = "Enter a number. (1-100)";
     userGoButton.disabled = false; //  // Enable the Go button
+    
+    displayHistory(); // Clear the displayed history
+    
 }
+
+function displayHistory() {
+    let historyElement = document.getElementById("result-history");
+    historyElement.innerHTML = ''; // Clear existing content
+
+    history.forEach(item => {
+        let historyItem = document.createElement("div");
+        historyItem.innerText = item;
+        historyElement.appendChild(historyItem);
+    });
+}
+
+
 
 randomNumber();
 

@@ -1,0 +1,147 @@
+.background {
+    background-image: url("img/Cubs.webp");
+    background-color: blanchedalmond;
+    width: 100%;
+    height: 57.5rem;
+    background-size: 65%;
+    background-position: center;
+    background-position-y: 20%;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+
+
+}
+
+main {
+    position: relative;
+    bottom: 10%;
+    text-align: center;
+
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+h1 {
+    font-family: "Anton SC", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.result-area, p{
+    font-family: "Outfit", sans-serif;
+    font-weight: 400;
+    font-size: larger;
+  font-optical-sizing: auto;
+  margin-bottom: 1rem;
+ 
+}
+
+.user-input{
+    border-radius: 5rem; 
+    height: 2rem;
+    box-shadow:0 0 0 2px #b18597, 0 0.625em 0 0 #ffe3e2;
+        border-style:none;
+   
+}
+
+
+@media (max-width:1000px) {
+.background{background-image: url("img/Bearstack.webp");
+    background-color: blanchedalmond;
+    width: 100%;
+    height: 57.5rem;
+    background-size: 20%;
+
+    background-repeat: no-repeat;
+    align-items: center;
+}
+
+main {
+    position: static;
+    align-items: center;
+    text-align: center;
+
+}
+
+h1{
+    margin-top: 5rem;
+}
+
+}
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Rubik:700&display=swap');
+ * {
+	 box-sizing: border-box;
+}
+ *::before, *::after {
+	 box-sizing: border-box;
+}
+
+button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    font-size: inherit;
+    font-family: inherit;
+}
+button.learn-more {
+    font-weight: 600;
+    color: #382b22;
+    text-transform: uppercase;
+    background: #fff0f0;
+    border: 2px solid #b18597;
+    border-radius: 0.75em;
+    transform-style: preserve-3d;
+    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), background 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+button.learn-more::before {
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #f9c4d2;
+    border-radius: inherit;
+    box-shadow: 0 0 0 2px #b18597, 0 0.625em 0 0 #ffe3e2;
+    transform: translate3d(0, 0.75em, -1em);
+    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1), box-shadow 150ms cubic-bezier(0, 0, 0.58, 1);
+}
+button.learn-more:hover {
+    background: #ffe9e9;
+    transform: translate(0, 0.25em);
+}
+button.learn-more:hover::before {
+    box-shadow: 0 0 0 2px #b18597, 0 0.5em 0 0 #ffe3e2;
+    transform: translate3d(0, 0.5em, -1em);
+}
+button.learn-more:active {
+    background: #ffe9e9;
+    transform: translate(0em, 0.75em);
+}
+button.learn-more:active::before {
+    box-shadow: 0 0 0 2px #b18597, 0 0 #ffe3e2;
+    transform: translate3d(0, 0, -1em);
+}
+
+
+
+
+
+
