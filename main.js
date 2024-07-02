@@ -15,7 +15,8 @@ let resetButton = document.getElementsByClassName("reset-button")[0];
 let chances = 3;
 let gameOver =false;
 let chancePoint = document.getElementsByClassName("chance-point")[0];
-let history = []
+let history = [];
+let historyElement = document.getElementById("result-history");
 
 
 userGoButton.addEventListener ("click", game);
@@ -33,9 +34,9 @@ function randomNumber(){
 
 
 function game() {
-    let userValue = userInput.value; 
+    let userValue = parseInt (userInput.value); 
 
-    if(userValue>100 || userValue < 1){
+    if(userValue > 100 || userValue < 1){
         resultArea.textContent = "Enter a number between 1 and 100!!";
         return;
     }
@@ -46,14 +47,13 @@ function game() {
 
     }
 
-
-
+    
+    history.push(userValue);
+    displayHistory(); // Display updated history
     
 
     chances --;
     chancePoint.textContent = `remain chance=${chances} `;
-
-
 
 
     if(userValue < computerNumber){
@@ -67,14 +67,14 @@ function game() {
     } else {
         
         resultArea.textContent = "Correct";
-        userGoButton.disabled =true;
+        userGoButton.disabled = true;
+        return;
     }
 
-    history.push(userValue);
-    displayHistory(); // Display updated history
+   
 
     if (chances < 1){
-        gameOver=true
+        gameOver=true;
         resultArea.textContent = "Game over";
 
     }
@@ -83,10 +83,7 @@ function game() {
         userGoButton.disabled = true;
     }
 
-    
-
 }
-
 
 function reset(){
     userInput.value= "";
@@ -102,6 +99,8 @@ function reset(){
     
 }
 
+console.log("user")
+
 function displayHistory() {
     let historyElement = document.getElementById("result-history");
     historyElement.innerHTML = ''; // Clear existing content
@@ -112,6 +111,7 @@ function displayHistory() {
         historyElement.appendChild(historyItem);
     });
 }
+
 
 
 
